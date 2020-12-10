@@ -117,3 +117,23 @@
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//CONDITIONALLY RENDERING CONTENT
+	//Here's what we want to do based on the latitude
+		//Have latitude + no error message === show latitude
+		//No latitude + have error message === show error
+		//No latitude + no error message === show 'loading'
+
+
+	//in render(){}
+		//in order to conditionally return some JSX, we just need some 'if' statements into the render method
+		if (this.state.errorMessage && !this.state.lat) {
+			return <div>Error: {this.state.errorMessage}</div>
+		}
+
+		if (!this.state.errorMessage && this.state.lat) {
+			return <div>Latitude: {this.state.lat}</div>
+		}
+
+		return <div>Loading!</div>
+
+		
